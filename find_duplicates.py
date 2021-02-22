@@ -6,6 +6,7 @@ newest_files = {}
 Entry = namedtuple('Entry', ['date', 'file_name'])
 duplicate_list = {}
 
+
 def find_duplicate_files(directory):
     os.chdir(directory)
     for file_name in os.listdir(directory):
@@ -20,4 +21,8 @@ def find_duplicate_files(directory):
             if this_file_date > cached_file.date: #replace with the new one
                 newest_files[name] = Entry(this_file_date, file_name)
 
-find_duplicate_files(directory)
+if __name__ == "__main__":
+    for folder_name, sub_folders, filenames in os.walk(directory):
+        for sub_folder in sub_folders:
+            full_directory = (f'{directory}\{sub_folder}')
+            find_duplicate_files(full_directory)
