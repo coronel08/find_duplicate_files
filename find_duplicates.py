@@ -26,6 +26,4 @@ if __name__ == "__main__":
     # Find duplicates in main branch
         # find_duplicate_files(directory)
     # Find duplicates in sub branch
-        for sub_folder in sub_folders:
-            full_directory = (f'{directory}\{sub_folder}')
-            find_duplicate_files(full_directory)
+        find_duplicate_files(folder_name)
